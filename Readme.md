@@ -68,3 +68,5 @@ prod.yml up -d
 docker-compose -f docker-compose.yml -f docker-compose-prod.yml down -v
 
 docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
+
+docker exec -it docker-playground_node-app_1 bash
