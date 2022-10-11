@@ -44,3 +44,9 @@ docker volume prune
 
 --deletes volumes along with container
 docker rm node-app -fv
+
+docker-compose up -d
+
+docker ps
+
+docker-compose down -v
