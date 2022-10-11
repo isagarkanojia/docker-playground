@@ -36,3 +36,6 @@ docker run -v $(pwd):/app:ro -v /app/node_modules/ -p 3000:3000 -d --name node-a
 docker run -v $(pwd):/app:ro -v /app/node_modules/ --env PORT=4000 -p 3000:4000 -d --name node-app node-app-image
 
 docker run -v $(pwd):/app:ro -v /app/node_modules/ --env-file ./.env -p 3000:5000 -d --name node-app node-app-image
+
+-- to see all envs in container
+printenv
