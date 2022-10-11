@@ -23,3 +23,10 @@ npm install express
 node index.js
 
 docker run -v $(pwd):/app -p 3000:3000 -d --name node-app node-app-image
+
+docker ps -a
+
+docker logs node-app
+
+//didn't work
+docker run -v $(pwd):/app -v /app/node_modules -p 3000:3000 -d --name node-app node-app-image
