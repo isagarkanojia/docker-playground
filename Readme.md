@@ -50,3 +50,21 @@ docker-compose up -d
 docker ps
 
 docker-compose down -v
+
+-- force build
+docker-compose up -d --build
+
+// for dev
+docker-compose -f docker-compose.yml -f docker-compose-
+dev.yml up -d
+
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml down -v
+
+docker-compose down -v
+
+docker-compose -f docker-compose.yml -f docker-compose-
+prod.yml up -d
+
+docker-compose -f docker-compose.yml -f docker-compose-prod.yml down -v
+
+docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build

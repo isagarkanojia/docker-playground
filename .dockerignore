@@ -4,3 +4,4 @@ Dockerfile
 .gitignore
 .git
 Readme.md
+docker-compose*
