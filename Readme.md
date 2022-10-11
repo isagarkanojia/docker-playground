@@ -39,3 +39,8 @@ docker run -v $(pwd):/app:ro -v /app/node_modules/ --env-file ./.env -p 3000:500
 
 -- to see all envs in container
 printenv
+
+docker volume prune
+
+--deletes volumes along with container
+docker rm node-app -fv
