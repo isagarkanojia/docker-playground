@@ -60,8 +60,6 @@ dev.yml up -d
 
 docker-compose -f docker-compose.yml -f docker-compose-dev.yml down -v
 
-MongoServerError: command listDatabases requires authentication
-
 docker-compose -f docker-compose.yml -f docker-compose-
 prod.yml up -d
 
@@ -82,3 +80,11 @@ docker volume ls
 docker volume --help
 
 docker volume prune
+
+use dockerdb
+
+show dbs
+
+db.books.insert({ "name": "sagar" })
+
+db.books.find();
