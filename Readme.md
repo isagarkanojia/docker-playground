@@ -60,7 +60,7 @@ dev.yml up -d
 
 docker-compose -f docker-compose.yml -f docker-compose-dev.yml down -v
 
-docker-compose down -v
+MongoServerError: command listDatabases requires authentication
 
 docker-compose -f docker-compose.yml -f docker-compose-
 prod.yml up -d
@@ -70,3 +70,9 @@ docker-compose -f docker-compose.yml -f docker-compose-prod.yml down -v
 docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
 
 docker exec -it docker-playground_node-app_1 bash
+
+docker exec -it docker-playground_mongo_1 bash
+
+mongosh -u sagar -p key
+
+docker exec -it docker-playground_mongo_1 mongosh -u sagar -p key
