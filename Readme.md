@@ -76,3 +76,9 @@ docker exec -it docker-playground_mongo_1 bash
 mongosh -u sagar -p key
 
 docker exec -it docker-playground_mongo_1 mongosh -u sagar -p key
+
+docker volume ls
+
+docker volume --help
+
+docker volume prune

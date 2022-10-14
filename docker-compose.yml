@@ -11,3 +11,8 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=sagar
       - MONGO_INITDB_ROOT_PASSWORD=key
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
