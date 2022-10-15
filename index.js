@@ -18,10 +18,15 @@ const mongoConfig = {
   useFindAndModify: false,
 };
 
-mongoose
-  .connect(mongoURL)
-  .then(() => console.log("successfully connected to DB"))
-  .catch((e) => console.log(e));
+const connectWithRetry = () => {
+  mongoose
+    .connect(mongoURL)
+    .then(() => console.log("successfully connected to DB"))
+    .catch((e) => {
+      console.log(e);
+      setTimeout(connectWithRetry, 5000);
+    });
+};
 
 app.get("/", (req, res) => {
   res.send("<h2>Hey there!!!</h2>");
