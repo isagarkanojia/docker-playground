@@ -28,6 +28,8 @@ const connectWithRetry = () => {
     });
 };
 
+connectWithRetry();
+
 app.get("/", (req, res) => {
   res.send("<h2>Hey there!!!</h2>");
 });
