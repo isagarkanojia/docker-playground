@@ -88,3 +88,7 @@ show dbs
 db.books.insert({ "name": "sagar" })
 
 db.books.find();
+
+docker inspect docker-playground_mongo_1
+
+docker logs docker-playground_node-app_1
