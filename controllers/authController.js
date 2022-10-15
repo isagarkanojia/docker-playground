@@ -3,7 +3,7 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const e = require("express");
 
-exports.signUp = async (req, res) => {
+exports.signUp = async (req, res, next) => {
   const { username, password } = req.body;
 
   try {
@@ -29,14 +29,14 @@ exports.signUp = async (req, res) => {
   }
 };
 
-exports.logIn = async (req, res) => {
+exports.logIn = async (req, res, next) => {
   const { username, password } = req.body;
 
   const user = await User.findOne({ username });
 
   try {
     if (!user) {
-      res.status(400).json({
+      res.status(404).json({
         status: "failed",
         message: "user not found",
       });
@@ -50,7 +50,7 @@ exports.logIn = async (req, res) => {
         status: "success",
       });
     } else {
-      res.status(400).json({
+      res.status(404).json({
         status: "failed",
         message: "incorrect username or password",
       });

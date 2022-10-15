@@ -6,6 +6,7 @@ const {
   REDIS_URL,
   REDIS_PORT,
   SESSION_SECRET,
+  USER_SESSION_TIMEOUT,
 } = require("./config/config");
 
 const express = require("express");
@@ -59,7 +60,7 @@ app.use(
       saveUninitialized: false,
       resave: false,
       httpOnly: true,
-      maxAge: 3000000,
+      maxAge: USER_SESSION_TIMEOUT,
     },
   })
 );
