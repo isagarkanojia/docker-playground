@@ -1,11 +1,29 @@
-const express = require("express");
-const mongoose = require("mongoose");
 const {
   MONGO_USER,
   MONGO_PASSWORD,
   MONGO_IP,
   MONGO_PORT,
+  REDIS_URL,
+  REDIS_PORT,
+  SESSION_SECRET,
 } = require("./config/config");
+
+const express = require("express");
+const mongoose = require("mongoose");
+const session = require("express-session");
+const redis = require("redis");
+
+let RedisStore = require("connect-redis")(session);
+
+let redisClient = redis.createClient({
+  legacyMode: true,
+  socket: {
+    port: REDIS_PORT,
+    host: REDIS_URL,
+  },
+});
+
+redisClient.connect().catch(console.error);
 
 const postRouter = require("./routes/postRoutes");
 const userRouter = require("./routes/userRoutes");
@@ -32,6 +50,19 @@ const connectWithRetry = () => {
 
 connectWithRetry();
 
+app.use(
+  session({
+    store: new RedisStore({ client: redisClient }),
+    secret: SESSION_SECRET,
+    cookie: {
+      secure: false,
+      saveUninitialized: false,
+      resave: false,
+      httpOnly: true,
+      maxAge: 3000000,
+    },
+  })
+);
 // middelware needed to rest apis
 app.use(express.json());
 

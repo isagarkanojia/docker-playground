@@ -98,3 +98,17 @@ ping mongo
 
 docker network ls
 docker network inspect docker-playground_default
+
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build --renew-anon-volumes
+
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build -V
+
+docker exec -it docker-playground_redis_1 bash
+
+redis-cli
+
+docker exec -it docker-playground_redis_1 redis-cli
+
+KEYS \*
+
+GET "key"
