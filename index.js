@@ -9,6 +9,7 @@ const {
   USER_SESSION_TIMEOUT,
 } = require("./config/config");
 
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -52,6 +53,7 @@ const connectWithRetry = () => {
 connectWithRetry();
 
 app.enable("trust proxy");
+app.use(cors({}));
 
 app.use(
   session({
