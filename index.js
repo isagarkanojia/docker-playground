@@ -67,7 +67,7 @@ app.use(
 // middelware needed to rest apis
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api/v1", (req, res) => {
   res.send("<h2>Hey there!!!</h2>");
 });
 
