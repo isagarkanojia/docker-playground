@@ -123,3 +123,7 @@ in .profile
 set -o allexport; source /root/.env; set +o allexport
 
 while read LINE; do export "$LINE"; done < .env
+
+docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build --no-deps node-app
+
+docker-compose-prod.yml up -d --build --no-deps --force-recreate node-app
