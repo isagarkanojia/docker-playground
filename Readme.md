@@ -92,3 +92,9 @@ db.books.find();
 docker inspect docker-playground_mongo_1
 
 docker logs docker-playground_node-app_1
+
+docker exec -it docker-playground_node-app_1 bash
+ping mongo
+
+docker network ls
+docker network inspect docker-playground_default

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 mongoose
-  .connect("mongodb://sagar:key@172.26.0.2:27017/?authSource=admin")
+  .connect("mongodb://sagar:key@mongo:27017/?authSource=admin")
   .then(() => console.log("successfully connected to DB"))
   .catch((e) => console.log(e));
 
